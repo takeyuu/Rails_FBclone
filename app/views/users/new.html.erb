@@ -28,9 +28,6 @@
   <div class="sign_up_form">
     <%= f.password_field :password_confirmation, placeholder: 'パスワード確認' %>
   </div>
-  <% if @user.errors.include?(:password_confirmation) %>
-    <p style="color: red;"><%= @user.errors.full_messages_for(:password_confirmation).first %></p>
-  <% end %>
   <div class="sign_up_btn">
     <%= f.submit 'アカウント登録' %>
   </div>
