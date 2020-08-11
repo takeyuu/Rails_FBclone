@@ -1,4 +1,5 @@
 <% if logged_in? %>
+  <%= render template: "users/show" %>
 <% else %>
   <%= render template: "users/new" %>
 <% end %>

@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
   def top
-    @user = User.new
+    @user = User.find(current_user.id)
   end
 end
