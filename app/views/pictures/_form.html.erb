@@ -17,6 +17,7 @@
     </div>
     <div class="image_form">
       <%= f.file_field :image %>
+      <%= f.hidden_field :image_cache %>
     </div>
     <div class="sign_up_btn">
       <%= f.submit '投稿' %>
