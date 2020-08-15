@@ -12,7 +12,13 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery/dist/jquery.js
 //= require bootstrap/dist/js/bootstrap.min
+//= require magnific-popup
 //= require_tree .
+
+$(function() {
+$('.inline-link').magnificPopup({
+ type:'inline'
+});
+});
