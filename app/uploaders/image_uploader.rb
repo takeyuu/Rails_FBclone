@@ -27,13 +27,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+  version :post do
+    process resize_and_pad: [200, 300, "#ffffff", "Center"]
+  end
 
   version :icon do
-    process resize_to_fit: [150, 150]
+    process resize_to_fit: [100, 100]
   end
 
   version :mini_icon do
-    process resize_to_fit: [50, 50]
+    process resize_to_fit: [40, 40]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

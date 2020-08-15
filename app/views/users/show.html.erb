@@ -7,3 +7,21 @@
 <%= link_to 'ユーザー編集', edit_user_path(@user.id) %>
 <%= link_to 'ログアウト', session_path(@user.id),
     method: :delete, data: { confirm: 'ログアウトしてよろしいですか？'} %>
+<h3>投稿一覧</h3>
+<% @user.pictures.each do |picture| %>
+  <div class="picture">
+    <%= picture.content %>
+    <%= image_tag 'picture.image.post.url' if picture.image?%>
+    <%= link_to '編集', edit_picture_path(picture.id) %>
+    <%= link_to '削除', picture_path(picture.id), method: :delete, data: {confirm: '本当に削除してもよろしいですか？'} %>
+  </div>
+<% end %>
+<div id="wrapper">
+  <span class="inline-link" data-mfp-src="#inline-popup">inline-popup</span>
+</div>
+<div id="inline-popup" class="mfp-hide">
+  <%= render template: "users/edit" %>
+  <div class="mfp-close">閉じる</div>
+</div>
+
+<%= link_to '新規作成', new_picture_path %>
