@@ -1,6 +1,10 @@
 class PicturesController < ApplicationController
   def top
-    @user = User.find(current_user.id)
+    if logged_in?
+      @user = User.find(current_user.id)
+    else
+      @user = User.new
+    end
   end
 
   def new
@@ -9,7 +13,7 @@ class PicturesController < ApplicationController
 
   def confirm
     @picture = current_user.pictures.build(picture_params)
-    # @picture.id = params[:id]
+    @picture.id = params[:id]
     render :new if @picture.invalid?
   end
 

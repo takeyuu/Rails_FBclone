@@ -27,9 +27,24 @@
   <div class="user_edit_form">
     <%= f.text_area :self_introduction, placeholder: '自己紹介を入力してください' %>
   </div>
-  <%= f.hidden_field :email, value: @user.email %>
-  <%= f.hidden_field :password, value: @user.password_digest %>
-  <%= f.hidden_field :password_confirmation, value: @user.password_digest %>
+  <div class="form_title">
+    <h3>メールアドレスの変更</h3>
+  </div>
+  <div class="user_edit_form">
+    <%= f.email_field :email, value: @user.email %>
+  </div>
+  <div class="form_title">
+    <h3>パスワードの変更</h3>
+  </div>
+  <div class="user_edit_form">
+    <%= f.password_field :password %>
+  </div>
+  <div class="form_title">
+    <h3>パスワードの確認</h3>
+  </div>
+  <div class="user_edit_form">
+    <%= f.password_field :password_confirmation %>
+  </div>
   <div class="user_edit_btn">
     <%= f.submit '編集' %>
   </div>

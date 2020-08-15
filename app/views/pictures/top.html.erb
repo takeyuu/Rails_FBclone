@@ -2,4 +2,5 @@
   <%= render template: "users/show" %>
 <% else %>
   <%= render template: "users/new" %>
+  <%= link_to 'ログイン', new_session_path %>
 <% end %>
