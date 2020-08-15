@@ -1,0 +1,18 @@
+<div class="main container">
+  <h3>この内容で投稿しますか？</h3>
+  <div class="form">
+    <%= form_with(model: @picture, local: true, url: confirm_new_or_edit, method: confirm_form_method) do |f| %>
+      <div class="confirm_form">
+        <%= f.hidden_field :content %>
+        <%= f.hidden_field :image %>
+        <p>Picture:</p>
+        <%= image_tag @picture.image.post.url %>
+        <p>Content:</p>
+        <p><%= @picture.content %></p>
+      </div>
+      <div class="sign_up_btn">
+        <%= f.submit '投稿', class: "btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>

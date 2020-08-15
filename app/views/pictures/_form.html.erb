@@ -1,0 +1,25 @@
+<div class="main container">
+  <%= form_with(model: @picture, local:true, url: choose_confirm) do |f| %>
+    <% if @picture.errors.any? %>
+      <div id="error_explanation">
+        <h2>エラーがあります</h2>
+      </div>
+    <% end %>
+    <div class="mini_icon_image">
+      <% if @picture.user.icon_image? %>
+        <%= image_tag @picture.user.icon_image.mini_icon.url %>
+      <% else %>
+        <%= image_tag "default_icon.jpg", size: '40x40' %>
+      <% end %>
+    </div>
+    <div class="user_edit_form">
+      <%= f.text_area :content, placeholder: '写真をシェアしよう！' %>
+    </div>
+    <div class="image_form">
+      <%= f.file_field :image %>
+    </div>
+    <div class="sign_up_btn">
+      <%= f.submit '投稿' %>
+    </div>
+  <% end %>
+</div>

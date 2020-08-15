@@ -1,0 +1,14 @@
+<div class="mini_icon_image">
+  <% if @picture.user.icon_image? %>
+    <%= image_tag @picture.user.icon_image.mini_icon.url %>
+  <% else %>
+    <%= image_tag "default_icon.jpg", size: '50x50' %>
+  <% end %>
+</div>
+<div id="wrapper">
+  <span class="inline-link" data-mfp-src="#inline-popup">inline-popup</span>
+</div>
+<div id="inline-popup" class="mfp-hide">
+  <%= render partial: "form" %>
+  <div class="mfp-close">閉じる</div>
+</div>
