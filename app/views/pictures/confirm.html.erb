@@ -6,7 +6,7 @@
         <%= f.hidden_field :content %>
         <%= f.hidden_field :image_cache %>
         <p>Picture:</p>
-        <%= image_tag @picture.image.post.url %>
+        <%= image_tag @picture.image.post.url if @picture.image?%>
         <p>Content:</p>
         <p><%= @picture.content %></p>
       </div>

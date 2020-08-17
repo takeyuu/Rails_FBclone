@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @picture = current_user.pictures.new
   end
 
   def edit

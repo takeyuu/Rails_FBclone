@@ -4,11 +4,13 @@
 <% else %>
   <%= image_tag "default_icon.jpg", size: '100x100' %>
 <% end %>
-<%= link_to 'ユーザー編集', edit_user_path(@user.id) %>
-<%= link_to 'ログアウト', session_path(@user.id),
+<% if @user.id == current_user.id %>
+  <%= link_to 'ユーザー編集', edit_user_path(@user.id) %>
+  <%= link_to 'ログアウト', session_path(@user.id),
     method: :delete, data: { confirm: 'ログアウトしてよろしいですか？'} %>
+<% end %>
 <h3>投稿一覧</h3>
-<% current_user.pictures.each do |picture| %>
+<% current_user.pictures.order(created_at: :desc).each do |picture| %>
   <div class="post">
     <div class="post_content">
       <%= picture.content %>
@@ -18,8 +20,10 @@
         <%= image_tag picture.image.post.url%>
       <% end %>
     </div>
-    <%= link_to '編集', edit_picture_path(picture.id) %>
-    <%= link_to '削除', picture_path(picture.id), method: :delete, data: {confirm: '本当に削除してもよろしいですか？'} %>
+    <% if picture.user_id == current_user.id %>
+      <%= link_to '編集', edit_picture_path(picture.id) %>
+      <%= link_to '削除', picture_path(picture.id), method: :delete, data: {confirm: '本当に削除してもよろしいですか？'} %>
+    <% end %>
   </div>
 <% end %>
 <div id="wrapper">
