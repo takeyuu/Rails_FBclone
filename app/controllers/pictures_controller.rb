@@ -23,6 +23,7 @@ class PicturesController < ApplicationController
     if @picture.save
       redirect_to user_path(current_user.id)
     else
+      flash.now[:danger] = 'エラーがあります'
       render :new
     end
   end
@@ -34,12 +35,14 @@ class PicturesController < ApplicationController
     if @picture.update(picture_params)
       redirect_to user_path(current_user.id)
     else
+      flash.now[:danger] = 'エラーがあります'
       render :edit
     end
   end
 
   def destroy
     @picture.destroy
+    flash[:notice] = '投稿を消去しました'
     redirect_to user_path(current_user.id)
   end
 

@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user.id)
     else
+      flash.now[:danger] = 'エラーがあります'
       render :new
     end
   end
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user.id)
     else
+      flash.now[:danger] = 'エラーがあります'
       render :edit
     end
   end
