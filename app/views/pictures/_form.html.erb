@@ -12,11 +12,13 @@
         <%= image_tag "default_icon.jpg", size: '40x40' %>
       <% end %>
     </div>
-    <div class="user_edit_form">
-      <%= f.text_area :content, placeholder: '写真をシェアしよう！' %>
+    <div class="form-group">
+      <%= f.label :content, 'コメント', class: "control-label" %>
+      <%= f.text_area :content, placeholder: '気持ちをシェアしよう！', class: "form-control" %>
     </div>
-    <div class="image_form">
-      <%= f.file_field :image %>
+    <div class="form-group">
+      <%= f.label :image, '写真をえらぶ', class: "control-label" %>
+      <%= f.file_field :image, class: "form-control" %>
       <%= f.hidden_field :image_cache %>
     </div>
     <div class="sign_up_btn">

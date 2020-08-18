@@ -9,41 +9,29 @@
       <%= image_tag "default_icon.jpg", size: '100x100' %>
     <% end %>
   </div>
-  <div class="form_title">
-    <h3>アイコンを変更</h3>
+  <div class="form-group">
+    <%= f.label :icon_image, 'アイコンの変更', class: "control-label" %>
+    <%= f.file_field :icon_image, class: "form-control" %>
   </div>
-  <div class="icon_form">
-    <%= f.file_field :icon_image %>
+  <div class="form-group">
+    <%= f.label :name, '名前', class: "control-label" %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div class="form_title">
-    <h3>名前を編集</h3>
+  <div class="form-group">
+    <%= f.label :self_introduction, '自己紹介', class: "control-label" %>
+    <%= f.text_area :self_introduction, placeholder: '自己紹介を入力してください', class: "form-control" %>
   </div>
-  <div class="user_edit_form">
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :email, 'メールアドレス', class: "control-label" %>
+    <%= f.email_field :email, value: @user.email, class: "form-control" %>
   </div>
-  <div class="form_title">
-    <h3>自己紹介を編集</h3>
+  <div class="form-group">
+    <%= f.label :password, 'パスワード', class: "control-label" %>
+    <%= f.password_field :password, class: "form-control" %>
   </div>
-  <div class="user_edit_form">
-    <%= f.text_area :self_introduction, placeholder: '自己紹介を入力してください' %>
-  </div>
-  <div class="form_title">
-    <h3>メールアドレスの変更</h3>
-  </div>
-  <div class="user_edit_form">
-    <%= f.email_field :email, value: @user.email %>
-  </div>
-  <div class="form_title">
-    <h3>パスワードの変更</h3>
-  </div>
-  <div class="user_edit_form">
-    <%= f.password_field :password %>
-  </div>
-  <div class="form_title">
-    <h3>パスワードの確認</h3>
-  </div>
-  <div class="user_edit_form">
-    <%= f.password_field :password_confirmation %>
+  <div class="form-group">
+    <%= f.label :password_confirmation, 'パスワードの確認', class: "control-label" %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
   </div>
   <div class="user_edit_btn">
     <%= f.submit '編集' %>

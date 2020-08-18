@@ -27,3 +27,19 @@
  .notice {
    background-color: #55b0fa;
  }
+
+#inline-popup{
+  background-color: #fff;
+  width: 50%;
+  margin: 30px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  .mfp-close{
+    z-index: 10;
+    position: relative;
+    font-size: 12px;
+    width: auto;
+    height: auto;
+    padding: 0;
+  }
+}
