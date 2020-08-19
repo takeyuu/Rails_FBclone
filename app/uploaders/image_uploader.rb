@@ -27,12 +27,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
-  version :post do
-    process resize_and_pad: [200, 300, "#ffffff", "Center"]
-  end
 
   version :icon do
-    process resize_to_fit: [100, 100]
+    process resize_to_fit: [150, 150]
   end
 
   version :mini_icon do
