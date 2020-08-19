@@ -1,14 +1,16 @@
-<div class="mini_icon_image">
-  <% if current_user.icon_image? %>
-    <%= image_tag current_user.icon_image.mini_icon.url %>
-  <% else %>
-    <%= image_tag "default_icon.jpg", size: '50x50' %>
-  <% end %>
-</div>
-<div id="wrapper">
-  <input type="text" value="popup新規投稿" class="inline-link" data-mfp-src="#inline-popup">
-</div>
-<div id="inline-popup" class="mfp-hide">
-  <%= render partial: "form" %>
-  <div class="mfp-close">閉じる</div>
+<div class="content">
+  <div class="mini_icon_image">
+    <% if current_user.icon_image? %>
+      <%= image_tag current_user.icon_image.mini_icon.url , class: "icon"%>
+    <% else %>
+      <%= image_tag "default_icon.jpg", size: '50x50', class: "icon" %>
+    <% end %>
+  </div>
+  <div id="wrapper">
+    <input type="text" value=" 新規投稿" class="inline-link new-form" data-mfp-src="#inline-popup2">
+  </div>
+  <div id="inline-popup2" class="mfp-hide">
+    <%= render partial: "pictures/form" %>
+    <div class="mfp-close"></div>
+  </div>
 </div>

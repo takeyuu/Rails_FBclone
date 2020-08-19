@@ -18,7 +18,7 @@
 //= require_tree .
 
 $(function() {
-$('.inline-link').magnificPopup({
- type:'inline'
-});
+  $('.inline-link').magnificPopup({
+   type:'inline'
+  });
 });

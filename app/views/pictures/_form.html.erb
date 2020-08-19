@@ -1,15 +1,10 @@
-<div class="main container">
-  <%= form_with(model: @picture, local:true, url: choose_confirm) do |f| %>
-    <% if @picture.errors.any? %>
-      <div id="error_explanation">
-        <h2>エラーがあります</h2>
-      </div>
-    <% end %>
-    <div class="mini_icon_image">
+<%= form_with(model: @picture, local:true, url: choose_confirm) do |f| %>
+  <div class="main container">
+    <div class="mini-icon-image">
       <% if @picture.user.icon_image? %>
-        <%= image_tag @picture.user.icon_image.mini_icon.url %>
+        <%= image_tag @picture.user.icon_image.mini_icon.url, class: "icon"%>
       <% else %>
-        <%= image_tag "default_icon.jpg", size: '40x40' %>
+        <%= image_tag "default_icon.jpg", size: '40x40', class: "icon" %>
       <% end %>
     </div>
     <div class="form-group">
@@ -18,11 +13,15 @@
     </div>
     <div class="form-group">
       <%= f.label :image, '写真をえらぶ', class: "control-label" %>
-      <%= f.file_field :image, class: "form-control" %>
-      <%= f.hidden_field :image_cache %>
+      <div class="custom-file">
+        <%= f.file_field :image, class: "form-control file custom-file-input" %>
+        <label class="custom-file-label" for="inputFile" data-browse="参照" >ファイルを選択(ここにドロップすることもできます)</label>
+        <%= f.hidden_field :image_cache %>
+      </div>
     </div>
-    <div class="sign_up_btn">
-      <%= f.submit '投稿' %>
+    <div class="submit">
+      <%= link_to 'マイページに戻る', user_path(@picture.user.id), class: "btn btn-outline-info" %>
+      <%= f.submit '投稿', class: "btn btn-outline-info" %>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
